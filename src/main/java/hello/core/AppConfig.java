@@ -15,6 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    // @Bean MemberService -> new MemoryMemberRepository()
+    // @Bean orderService -> new MemoryMemberRepository() 두 번 호출 됨 -> 과연 스프링 컨테이너는 어떻게 동작할까?
+
     @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository()); // 생성자 주입
